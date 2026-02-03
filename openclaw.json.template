@@ -40,14 +40,6 @@
       "workspace": "./clawd",
       "compaction": {
         "mode": "safeguard"
-      },
-      "tools": {
-        "google-search": {
-          "enabled": true
-        },
-        "web_fetch": {
-          "enabled": true
-        }
       }
     }
   },
