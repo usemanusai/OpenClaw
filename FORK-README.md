@@ -79,6 +79,135 @@ You should see:
 [discord] logged in to discord as <YOUR_BOT_ID>
 ```
 
+## 📋 Full Config (Copy-Paste Ready)
+
+**Replace `YOUR_DISCORD_BOT_TOKEN_HERE` with your actual Discord bot token!**
+
+Save this to:
+- **Windows**: `%USERPROFILE%\.openclaw\openclaw.json`
+- **macOS/Linux**: `~/.openclaw/openclaw.json`
+
+```json
+{
+  "meta": {
+    "lastTouchedVersion": "2026.1.30"
+  },
+  "auth": {
+    "profiles": {}
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "google-antigravity/gemini-3-flash",
+        "fallbacks": [
+          "google-antigravity/gemini-3-pro",
+          "google-antigravity/claude-sonnet-4-5"
+        ]
+      },
+      "models": {
+        "google-antigravity/gemini-3-pro": {
+          "alias": "Gemini 3 Pro"
+        },
+        "google-antigravity/gemini-3-pro-thinking": {
+          "alias": "Gemini 3 Pro (Thinking)"
+        },
+        "google-antigravity/gemini-3-flash": {
+          "alias": "Gemini 3 Flash"
+        },
+        "google-antigravity/claude-sonnet-4-5": {
+          "alias": "Claude Sonnet 4.5"
+        },
+        "google-antigravity/claude-sonnet-4-5-thinking": {
+          "alias": "Claude Sonnet 4.5 (Thinking)"
+        },
+        "google-antigravity/claude-opus-4-5-thinking": {
+          "alias": "Claude Opus 4.5 (Thinking)"
+        },
+        "google-antigravity/gpt-oss": {
+          "alias": "GPT-OSS"
+        }
+      },
+      "workspace": "./clawd",
+      "compaction": {
+        "mode": "safeguard"
+      }
+    }
+  },
+  "channels": {
+    "telegram": {
+      "enabled": false,
+      "dmPolicy": "pairing",
+      "botToken": "YOUR_TELEGRAM_BOT_TOKEN_HERE",
+      "groupPolicy": "allowlist",
+      "streamMode": "partial"
+    },
+    "discord": {
+      "enabled": true,
+      "token": "YOUR_DISCORD_BOT_TOKEN_HERE",
+      "dm": {
+        "policy": "open",
+        "allowFrom": ["*"]
+      },
+      "groupPolicy": "open",
+      "guilds": {},
+      "actions": {
+        "reactions": true,
+        "messages": true,
+        "threads": true,
+        "pins": true,
+        "search": true,
+        "polls": true,
+        "permissions": true,
+        "memberInfo": true,
+        "roleInfo": true,
+        "channelInfo": true,
+        "voiceStatus": true,
+        "events": true,
+        "stickers": true,
+        "emojiUploads": false,
+        "stickerUploads": false,
+        "roles": false,
+        "channels": false,
+        "moderation": false
+      }
+    }
+  },
+  "skills": {
+    "entries": {
+      "discord": {
+        "enabled": true
+      },
+      "gemini": {
+        "enabled": true
+      }
+    }
+  },
+  "gateway": {
+    "port": 18789,
+    "mode": "local",
+    "bind": "loopback",
+    "auth": {
+      "mode": "none"
+    }
+  },
+  "plugins": {
+    "entries": {
+      "google-antigravity-auth": {
+        "enabled": true
+      },
+      "telegram": {
+        "enabled": false
+      },
+      "discord": {
+        "enabled": true
+      }
+    }
+  }
+}
+```
+
+---
+
 ## 🛠️ Troubleshooting
 
 ### "Invalid config" or "Unrecognized key" errors
@@ -94,23 +223,19 @@ Run this command to automatically fix the config:
 openclaw doctor --fix
 ```
 
-### Windows Users
-
-On Windows, use these commands instead:
+### Windows Users - Creating the Config Directory
 
 **PowerShell:**
 ```powershell
-mkdir -Force "$env:USERPROFILE\.openclaw"
-copy openclaw.json.template "$env:USERPROFILE\.openclaw\openclaw.json"
+New-Item -ItemType Directory -Force -Path "$env:USERPROFILE\.openclaw"
 ```
 
 **Command Prompt:**
 ```cmd
 mkdir %USERPROFILE%\.openclaw
-copy openclaw.json.template %USERPROFILE%\.openclaw\openclaw.json
 ```
 
-Then edit the config file at `%USERPROFILE%\.openclaw\openclaw.json` with your Discord token.
+Then create `openclaw.json` in that folder with the config above.
 
 ---
 
