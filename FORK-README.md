@@ -186,9 +186,7 @@ Save this to:
     "port": 18789,
     "mode": "local",
     "bind": "loopback",
-    "auth": {
-      "mode": "none"
-    }
+    "auth": "none"
   },
   "plugins": {
     "entries": {
