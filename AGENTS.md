@@ -278,3 +278,24 @@ Skills own workflows; root owns hard policy and routing.
 - Local-only `.agents` ignores: `.git/info/exclude`, not repo `.gitignore`.
 - Provider tool schemas: prefer flat string enum helpers over `Type.Union([Type.Literal(...)])`; some providers reject `anyOf`.
 - External messaging: no token-delta channel messages. Follow `docs/concepts/streaming.md`.
+
+## Child DOX Index
+
+- [docs](file:///root/openclaw/docs/AGENTS.md)
+- [scripts](file:///root/openclaw/scripts/AGENTS.md)
+- [ui](file:///root/openclaw/ui/AGENTS.md)
+- [src/gateway](file:///root/openclaw/src/gateway/AGENTS.md)
+  - [server-methods](file:///root/openclaw/src/gateway/server-methods/AGENTS.md)
+- [src/tui](file:///root/openclaw/src/tui/AGENTS.md)
+- [src/plugins](file:///root/openclaw/src/plugins/AGENTS.md)
+- [src/channels](file:///root/openclaw/src/channels/AGENTS.md)
+  - [plugins/contracts/test-helpers](file:///root/openclaw/src/channels/plugins/contracts/test-helpers/AGENTS.md)
+- [src/agents](file:///root/openclaw/src/agents/AGENTS.md)
+  - [tools](file:///root/openclaw/src/agents/tools/AGENTS.md)
+  - [embedded-agent-runner/run](file:///root/openclaw/src/agents/embedded-agent-runner/run/AGENTS.md)
+- [src/infra/outbound](file:///root/openclaw/src/infra/outbound/AGENTS.md)
+- [src/plugin-sdk](file:///root/openclaw/src/plugin-sdk/AGENTS.md)
+- [test](file:///root/openclaw/test/AGENTS.md)
+  - [helpers](file:///root/openclaw/test/helpers/AGENTS.md)
+- [extensions](file:///root/openclaw/extensions/AGENTS.md)
+  - [acpx](file:///root/openclaw/extensions/acpx/AGENTS.md)

@@ -1633,6 +1633,10 @@ export const dispatchTelegramMessage = async ({
       if (isDispatchSuperseded()) {
         return false;
       }
+      if (payload.isError === true && isGroup) {
+        logVerbose(`telegram: suppressing error payload delivery in group chat ${chatId}`);
+        return true;
+      }
       const deliverablePayload = applyQuoteReplyTarget(payload);
       const silent = options?.silent ?? (silentErrorReplies && payload.isError === true);
       const durableDelivery = telegramDeps.deliverInboundReplyWithMessageSendContext;
@@ -2585,6 +2589,7 @@ export const dispatchTelegramMessage = async ({
   const shouldSendFailureFallback =
     !isRoomEvent &&
     !suppressFailureFallback &&
+    !isGroup &&
     (dispatchError ||
       (!deliverySummary.delivered &&
         (deliverySummary.skippedNonSilent > 0 || deliverySummary.failedNonSilent > 0)));
